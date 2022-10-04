@@ -9,6 +9,10 @@
 Console.Clear();
 int length = int.Parse(Console.ReadLine()!);
 
+int[] array = HandleFillArray(length);
+int amount = FindCountPositiveDigit(array);
+
+PrintResult(array, amount);
 
 
 int[] HandleFillArray(int length) {
@@ -26,4 +30,16 @@ int FindCountPositiveDigit(int[] arr) {
         if (arr[i] > 0) count++;
     }
     return count;
+}
+
+void PrintResult (int[] array, int amount) {
+    for (int i = 0; i < array.Length; i++)
+    {   
+        if (i == array.Length - 1) {
+         Console.Write($"{array[i]}");       
+        } else {
+        Console.Write($"{array[i]}, ");
+        }
+    }
+    Console.Write($" -> {amount}");
 }
