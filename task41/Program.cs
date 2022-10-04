@@ -9,9 +9,10 @@
 Console.Clear();
 int length = int.Parse(Console.ReadLine()!);
 
-int[] array = new int[length];
 
-int[] HandleFillArray(int[] arr) {
+
+int[] HandleFillArray(int length) {
+    int[] arr = new int[length];
     for (int i = 0; i < arr.Length; i++) {
         arr[i] = int.Parse(Console.ReadLine()!);
     }
