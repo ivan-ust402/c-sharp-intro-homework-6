@@ -7,6 +7,8 @@
 */
 
 Console.Clear();
+Console.WriteLine("------------------  Решение обычным способом  ----------------");
+Console.WriteLine("Введите число, обозначающее размерность, вводимого вами массива: ");
 int length = int.Parse(Console.ReadLine()!);
 
 int[] array = HandleFillArray(length);
@@ -42,4 +44,33 @@ void PrintResult (int[] array, int amount) {
         }
     }
     Console.Write($" -> {amount}");
+    Console.WriteLine("");
+}
+
+// Решение через реверсию
+Console.WriteLine("------------------  Решение через рекурсию  ----------------");
+Console.WriteLine("");
+Console.WriteLine("Введите число, обозначающее размерность, вводимого вами массива: ");
+int len = int.Parse(Console.ReadLine()!);
+
+int[] arr = new int[len];
+
+HandleFillArrayReversion(arr);
+int count = FindCountPositiveDigitReversion(arr);
+PrintResult(arr, count);
+
+void HandleFillArrayReversion(int[] array, int index = 0) {
+    if(index < array.Length) {
+        array[index] = int.Parse(Console.ReadLine()!);
+        HandleFillArrayReversion(array, ++index);
+    }
+}
+
+int FindCountPositiveDigitReversion(int[] array, int index = 0, int count = 0) {
+    if(index < array.Length) {
+        if(array[index] > 0) count++;
+        return FindCountPositiveDigitReversion(array, ++index, count);
+    } else {
+        return count;
+    }
 }
