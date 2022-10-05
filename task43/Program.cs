@@ -15,10 +15,18 @@ int k2 = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите коэффициент b2: ");
 int b2 = int.Parse(Console.ReadLine()!);
 
+int[] array = FindIntersectionPoint(k1, b1, k2, b2);
+
+Console.Write("(");
+Console.Write(array[0]);
+Console.Write(", ");
+Console.Write(array[1]);
+Console.Write(")");
 
 int[] FindIntersectionPoint(int k1, int b1, int k2, int b2) {
     int x = (b2 - b1) / (k1 - k2);
     int y = k1 * x + b1;
-    int[] array = new int{x, y};
+    int[] array = new int[]{x, y};
     return array;  
 }
+
